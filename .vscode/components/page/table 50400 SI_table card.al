@@ -74,6 +74,19 @@ page 50401 cardPage1
             }
         }
     
+    // to create new type of action
+    area(Navigation)  
+        {
+            action(MEnu)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Message('New menu');
+                end;
+            }
+        }
     }
 
     
