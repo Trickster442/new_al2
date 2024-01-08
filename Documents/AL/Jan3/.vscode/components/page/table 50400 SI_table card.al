@@ -1,7 +1,7 @@
 page 50401 cardPage1
 {
     PageType = Card;
-    UsageCategory = Documents;
+    UsageCategory = Administration;
     SourceTable = SI_table;
 
     layout
@@ -73,10 +73,23 @@ page 50401 cardPage1
                 end;
             }
         }
-    
+
+        // to create new type of action
+        area(Navigation)
+        {
+            action(MEnu)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Message('New menu');
+                end;
+            }
+        }
     }
 
-    
+
     trigger OnOpenPage()
     begin
         Message('Welcome');
