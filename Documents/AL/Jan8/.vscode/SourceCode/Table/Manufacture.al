@@ -31,7 +31,7 @@ table 50105 Manufacturer_table
             begin
                 if manu.Get(Manufacturer_Id) then
                     Vehicle_Type := manu.Vehicle_Type;
-                Year := manu.Year;
+                "Year" := manu.Year;
             end;
         }
         field(5; Vehicle_Type; Option)
