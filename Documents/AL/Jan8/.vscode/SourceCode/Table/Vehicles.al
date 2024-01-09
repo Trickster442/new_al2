@@ -7,10 +7,12 @@ table 50106 Vehicle_Table
         field(1; Vehicle_Id; Integer)
         {
             DataClassification = ToBeClassified;
-        trigger OnValidate()
-        begin
-            
-        end;
+            trigger OnValidate()
+
+            begin
+
+            end;
+
         }
         field(2; Manufacturer_Id; Integer)
         {
@@ -30,6 +32,7 @@ table 50106 Vehicle_Table
         {
             DataClassification = ToBeClassified;
         }
+
     }
 
     keys
@@ -60,12 +63,20 @@ table 50106 Vehicle_Table
 
     trigger OnDelete()
     begin
-        Message('');
+        Message('Data Deleted');
     end;
 
     trigger OnRename()
     begin
-
+        Message('Renamed');
     end;
+
+
+
+
+
+
+
+
 
 }
