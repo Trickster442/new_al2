@@ -16,15 +16,19 @@ table 50420 ConcertManagementTable
             trigger OnValidate()
             var
                 conc: Record venueTable;
+                fullName: Record "Country/Region";
             begin
                 if conc.Get(Venue_id) then
-                    rec.Country_name := conc.Country;
+                    if fullName.Get(conc.Country) then
+                        rec.Country_name := fullName.Name;
+
             end;
 
         }
         field(3; Country_name; Code[20])
         {
             DataClassification = ToBeClassified;
+            Editable = false;
 
         }
         field(4; Artist_Name; Code[20])
@@ -42,12 +46,14 @@ table 50420 ConcertManagementTable
         field(5; Manager_name; Text[100])
         {
             DataClassification = ToBeClassified;
+            Editable = false;
 
         }
         field(6; Charge_fee; Decimal)
         {
             FieldClass = FlowField;
             CalcFormula = lookup(artistTable.Charges where(Artist_ID = field(Artist_Name)));
+            Editable = false;
 
         }
     }
